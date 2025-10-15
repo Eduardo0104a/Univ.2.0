@@ -6,70 +6,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel Administrador - Ruwana</title>
-    
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
+    <jsp:include page="/WEB-INF/fragments/admin-head.jsp" />
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="${pageContext.request.contextPath}/">
-                <i class="bi bi-heart-fill"></i> Ruwana Admin
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="${pageContext.request.contextPath}/app/admin/dashboard">
-                            <i class="bi bi-speedometer2"></i> Dashboard
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/app/admin/organizaciones">
-                            <i class="bi bi-building"></i> Organizaciones
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/app/admin/eventos">
-                            <i class="bi bi-calendar-event"></i> Eventos
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/app/admin/voluntarios">
-                            <i class="bi bi-people"></i> Voluntarios
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/app/admin/reportes">
-                            <i class="bi bi-graph-up"></i> Reportes
-                        </a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" 
-                           data-bs-toggle="dropdown">
-                            <i class="bi bi-person-circle"></i> ${usuario.nombreCompleto}
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end">
-                            <li>
-                                <a class="dropdown-item" href="${pageContext.request.contextPath}/logout">
-                                    <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <jsp:include page="/WEB-INF/fragments/admin-navbar.jsp">
+        <jsp:param name="page" value="dashboard" />
+    </jsp:include>
 
     <!-- Main Content -->
     <div class="container-fluid py-4">
@@ -233,10 +175,24 @@
                                                         <i class="bi bi-calendar"></i> ${evento.fechaInicio} - ${evento.fechaFin}
                                                     </p>
                                                 </div>
-                                                <div>
-                                                    <a href="${pageContext.request.contextPath}/app/admin/eventos/${evento.id}" 
-                                                       class="btn btn-sm btn-primary-ruwana">
-                                                        Revisar
+                                                <div class="btn-group">
+                                                    <form method="post" action="${pageContext.request.contextPath}/app/admin/evento/aprobar" style="display: inline;">
+                                                        <input type="hidden" name="eventoId" value="${evento.id}">
+                                                        <input type="hidden" name="accion" value="aprobar">
+                                                        <button type="submit" class="btn btn-sm btn-success" title="Aprobar">
+                                                            <i class="bi bi-check-circle"></i>
+                                                        </button>
+                                                    </form>
+                                                    <button type="button" class="btn btn-sm btn-danger" 
+                                                            onclick="rechazarEvento(${evento.id}, '${evento.nombre}')" 
+                                                            title="Rechazar">
+                                                        <i class="bi bi-x-circle"></i>
+                                                    </button>
+                                                    <a href="${pageContext.request.contextPath}/eventos/${evento.id}" 
+                                                       class="btn btn-sm btn-outline-primary" 
+                                                       target="_blank"
+                                                       title="Ver detalle">
+                                                        <i class="bi bi-eye"></i>
                                                     </a>
                                                 </div>
                                             </div>
@@ -301,7 +257,20 @@
         </div>
     </div>
 
-    <!-- Bootstrap 5 JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Hidden form for rejecting events -->
+    <form id="rechazarEventoForm" method="post" action="${pageContext.request.contextPath}/app/admin/evento/aprobar">
+        <input type="hidden" name="eventoId" id="rechazarEventoId">
+        <input type="hidden" name="accion" value="rechazar">
+    </form>
+
+    <jsp:include page="/WEB-INF/fragments/admin-scripts.jsp" />
+    <script>
+        function rechazarEvento(eventoId, eventoNombre) {
+            if (confirm('¿Estás seguro de rechazar el evento "' + eventoNombre + '"?')) {
+                document.getElementById('rechazarEventoId').value = eventoId;
+                document.getElementById('rechazarEventoForm').submit();
+            }
+        }
+    </script>
 </body>
 </html>

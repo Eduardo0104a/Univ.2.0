@@ -134,6 +134,19 @@ public class OrganizacionService {
     }
 
     /**
+     * Find all organizations
+     */
+    public List<Organizacion> listarTodas() {
+        EntityManager em = JPAUtil.getEntityManager();
+        try {
+            organizacionDAO.setEntityManager(em);
+            return organizacionDAO.findAll();
+        } finally {
+            JPAUtil.close(em);
+        }
+    }
+
+    /**
      * Find organizations by country
      */
     public List<Organizacion> listarPorPais(String pais) {

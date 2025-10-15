@@ -53,9 +53,11 @@ public class OrganizacionDAOImpl extends GenericDAOImpl<Organizacion, Long> impl
     @Override
     public List<Organizacion> findByEstadoAprobacion(EstadoAprobacion estado) {
         try {
-            TypedQuery<Organizacion> query = getEntityManager()
-                    .createQuery("SELECT o FROM Organizacion o WHERE o.estadoAprobacion = :estado " +
-                               "ORDER BY o.fechaRegistro DESC", Organizacion.class);
+            String jpql = "SELECT DISTINCT o FROM Organizacion o " +
+                         "JOIN FETCH o.usuario " +
+                         "WHERE o.estadoAprobacion = :estado " +
+                         "ORDER BY o.fechaRegistro DESC";
+            TypedQuery<Organizacion> query = getEntityManager().createQuery(jpql, Organizacion.class);
             query.setParameter("estado", estado);
             return query.getResultList();
         } catch (Exception e) {
@@ -72,6 +74,20 @@ public class OrganizacionDAOImpl extends GenericDAOImpl<Organizacion, Long> impl
     @Override
     public List<Organizacion> findPendientes() {
         return findByEstadoAprobacion(EstadoAprobacion.PENDIENTE);
+    }
+
+    @Override
+    public List<Organizacion> findAll() {
+        try {
+            String jpql = "SELECT DISTINCT o FROM Organizacion o " +
+                         "JOIN FETCH o.usuario " +
+                         "ORDER BY o.fechaRegistro DESC";
+            TypedQuery<Organizacion> query = getEntityManager().createQuery(jpql, Organizacion.class);
+            return query.getResultList();
+        } catch (Exception e) {
+            logger.error("Error finding all organizations", e);
+            throw new RuntimeException("Error finding all organizations", e);
+        }
     }
 
     @Override
