@@ -1,0 +1,324 @@
+/* Ruwana - Main Styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #B91C50;
+    --primary-light: #E63462;
+    --primary-dark: #8B1540;
+    --accent-color: #FF6B7A;
+    --accent-light: #FFA5AE;
+    --success-color: #4CAF50;
+    --danger-color: #f44336;
+    --text-dark: #2C3E50;
+    --text-light: #6C757D;
+    --background-light: #F8F9FA;
+    --background-cream: #FFF5F5;
+    --border-color: #E0E0E0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-light);
+    color: var(--text-dark);
+    min-height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+    padding: 1rem 0;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--primary-color) !important;
+}
+
+.navbar-nav .nav-link {
+    font-weight: 500;
+    color: var(--text-dark) !important;
+    margin: 0 0.5rem;
+    transition: color 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--primary-color) !important;
+}
+
+.btn-primary-custom {
+    background-color: var(--accent-color);
+    border: none;
+    color: white;
+    font-weight: 600;
+    padding: 0.6rem 1.5rem;
+    border-radius: 25px;
+    transition: all 0.3s;
+}
+
+.btn-primary-custom:hover {
+    background-color: var(--primary-light);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(185, 28, 80, 0.3);
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: white;
+    padding: 4rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+.hero-section h1 {
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    opacity: 0.95;
+}
+
+/* Form Container */
+.form-container {
+    background: white;
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    margin: 2rem auto;
+    max-width: 500px;
+}
+
+.form-container-wide {
+    max-width: 800px;
+}
+
+.form-container h2 {
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.form-container .subtitle {
+    color: var(--text-light);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Form Inputs */
+.form-label {
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.form-control, .form-select {
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(185, 28, 80, 0.15);
+}
+
+.form-control::placeholder {
+    color: #B0B0B0;
+}
+
+/* Buttons */
+.btn-primary-ruwana {
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--primary-light) 100%);
+    border: none;
+    color: white;
+    font-weight: 600;
+    padding: 0.8rem 2rem;
+    border-radius: 25px;
+    font-size: 1rem;
+    width: 100%;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(230, 52, 98, 0.3);
+}
+
+.btn-primary-ruwana:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(230, 52, 98, 0.4);
+}
+
+.btn-outline-ruwana {
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    font-weight: 600;
+    padding: 0.8rem 2rem;
+    border-radius: 25px;
+    transition: all 0.3s;
+}
+
+.btn-outline-ruwana:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Alert Messages */
+.alert-custom {
+    border-radius: 10px;
+    border: none;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.alert-error {
+    background-color: #FFE5E5;
+    color: #C62828;
+}
+
+.alert-success {
+    background-color: #E8F5E9;
+    color: #2E7D32;
+}
+
+.alert-info {
+    background-color: #E3F2FD;
+    color: #1565C0;
+}
+
+/* Links */
+.link-ruwana {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.link-ruwana:hover {
+    color: var(--primary-light);
+    text-decoration: underline;
+}
+
+/* Image Circle */
+.circle-image {
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border: 8px solid white;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Decorative Shapes */
+.shape-decoration {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.1;
+}
+
+.shape-1 {
+    width: 300px;
+    height: 300px;
+    background: var(--accent-color);
+    top: -100px;
+    left: -100px;
+}
+
+.shape-2 {
+    width: 200px;
+    height: 200px;
+    background: var(--primary-light);
+    bottom: -50px;
+    right: -50px;
+}
+
+/* Card Styles */
+.card-ruwana {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s;
+}
+
+.card-ruwana:hover {
+    transform: translateY(-5px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .form-container {
+        padding: 2rem 1.5rem;
+    }
+    
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    
+    .circle-image {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+/* Loading Spinner */
+.spinner-ruwana {
+    border: 3px solid rgba(185, 28, 80, 0.1);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Form Steps */
+.form-steps {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.step {
+    flex: 1;
+    text-align: center;
+    padding: 1rem;
+    border-bottom: 3px solid var(--border-color);
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+.step.active {
+    border-bottom-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.step.completed {
+    border-bottom-color: var(--success-color);
+    color: var(--success-color);
+}
