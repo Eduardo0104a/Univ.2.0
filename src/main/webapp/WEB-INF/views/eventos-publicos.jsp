@@ -6,58 +6,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eventos de Voluntariado - Ruwana</title>
-    
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
+    <jsp:include page="/WEB-INF/fragments/common-head.jsp" />
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-            <a class="navbar-brand" href="${pageContext.request.contextPath}/">
-                <i class="bi bi-heart-fill"></i> Ruwana
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="${pageContext.request.contextPath}/eventos">Eventos</a>
-                    </li>
-                    <c:choose>
-                        <c:when test="${not empty sessionScope.usuario}">
-                            <li class="nav-item">
-                                <a class="nav-link" href="${pageContext.request.contextPath}/app/${sessionScope.usuario.rol.name().toLowerCase()}/dashboard">
-                                    <i class="bi bi-person-circle"></i> Mi Panel
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="${pageContext.request.contextPath}/logout">Cerrar Sesión</a>
-                            </li>
-                        </c:when>
-                        <c:otherwise>
-                            <li class="nav-item">
-                                <a class="nav-link" href="${pageContext.request.contextPath}/login">Iniciar Sesión</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="btn btn-primary-custom ms-2" href="${pageContext.request.contextPath}/registro/voluntario">
-                                    Registrarse
-                                </a>
-                            </li>
-                        </c:otherwise>
-                    </c:choose>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <jsp:include page="/WEB-INF/fragments/public-navbar.jsp">
+        <jsp:param name="page" value="eventos" />
+    </jsp:include>
 
     <!-- Hero Section -->
     <div class="hero-section">
@@ -129,7 +83,7 @@
                                     
                                     <div class="mb-3">
                                         <p class="mb-2">
-                                            <i class="bi bi-building text-muted"></i>
+                                            <i class="bi bi-buildings text-muted"></i>
                                             <small class="text-muted">${evento.organizacion.nombreOrganizacion}</small>
                                         </p>
                                         <p class="mb-2">
@@ -191,7 +145,6 @@
         </div>
     </c:if>
 
-    <!-- Bootstrap 5 JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <jsp:include page="/WEB-INF/fragments/common-scripts.jsp" />
 </body>
 </html>

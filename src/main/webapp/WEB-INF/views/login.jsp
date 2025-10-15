@@ -19,7 +19,8 @@
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
             <a class="navbar-brand" href="${pageContext.request.contextPath}/">
-                <i class="bi bi-heart-fill"></i> Ruwana
+                <img src="${pageContext.request.contextPath}/images/logos/ruwana.svg" alt="Ruwana" class="navbar-logo">
+                Ruwana
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -144,7 +145,7 @@
                         </a>
                         <a href="${pageContext.request.contextPath}/registro/organizacion" 
                            class="btn btn-outline-ruwana mb-2">
-                            <i class="bi bi-building"></i> Soy Organización
+                            <i class="bi bi-buildings"></i> Soy Organización
                         </a>
                     </div>
                 </div>

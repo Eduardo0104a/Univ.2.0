@@ -20,7 +20,7 @@
             <div class="col-12">
                 <div class="card-ruwana p-4" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); color: white;">
                     <h2 class="mb-2">
-                        <i class="bi bi-building"></i> Gestión de Organizaciones
+                        <i class="bi bi-buildings"></i> Gestión de Organizaciones
                     </h2>
                     <p class="mb-0 opacity-75">Aprobar o rechazar solicitudes de registro</p>
                 </div>
@@ -209,7 +209,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title"><i class="bi bi-building"></i> Detalles de la Organización</h5>
+                    <h5 class="modal-title"><i class="bi bi-buildings"></i> Detalles de la Organización</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body" id="detalleContent">

@@ -19,7 +19,8 @@
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
             <a class="navbar-brand" href="${pageContext.request.contextPath}/">
-                <i class="bi bi-heart-fill"></i> Ruwana
+                <img src="${pageContext.request.contextPath}/images/logos/ruwana.svg" alt="Ruwana" class="navbar-logo">
+                Ruwana
             </a>
         </div>
     </nav>

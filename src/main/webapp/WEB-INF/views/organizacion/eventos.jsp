@@ -6,60 +6,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mis Eventos - Ruwana</title>
-    
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
+    <jsp:include page="/WEB-INF/fragments/common-head.jsp" />
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-            <a class="navbar-brand" href="${pageContext.request.contextPath}/">
-                <i class="bi bi-heart-fill"></i> Ruwana
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/app/organizacion/dashboard">
-                            <i class="bi bi-speedometer2"></i> Dashboard
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="${pageContext.request.contextPath}/app/organizacion/eventos">
-                            <i class="bi bi-calendar-event"></i> Mis Eventos
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/logout">Cerrar Sesión</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <jsp:include page="/WEB-INF/fragments/organizacion-navbar.jsp">
+        <jsp:param name="page" value="eventos" />
+    </jsp:include>
 
-    <!-- Header -->
-    <div class="hero-section">
-        <div class="container">
-            <div class="d-flex justify-content-between align-items-center">
-                <div>
-                    <h1><i class="bi bi-calendar-check"></i> Mis Eventos</h1>
-                    <p>${organizacion.nombreOrganizacion}</p>
+    <!-- Main Content -->
+    <div class="container-fluid py-4">
+        <!-- Page Header -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card-ruwana p-4" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); color: white;">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h2 class="mb-2">
+                                <i class="bi bi-calendar-check"></i> Mis Eventos
+                            </h2>
+                            <p class="mb-0 opacity-75">${organizacion.nombreOrganizacion}</p>
+                        </div>
+                        <a href="${pageContext.request.contextPath}/app/organizacion/evento/nuevo" class="btn btn-light btn-lg">
+                            <i class="bi bi-plus-circle"></i> Crear Nuevo Evento
+                        </a>
+                    </div>
                 </div>
-                <a href="${pageContext.request.contextPath}/app/organizacion/evento/nuevo" class="btn btn-primary-ruwana btn-lg">
-                    <i class="bi bi-plus-circle"></i> Crear Nuevo Evento
-                </a>
             </div>
         </div>
-    </div>
-
-    <div class="container py-5">
         <!-- Success/Error Messages -->
         <c:if test="${not empty sessionScope.success}">
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -237,8 +210,7 @@
         <input type="hidden" name="eventoId" id="deleteEventoId">
     </form>
 
-    <!-- Bootstrap 5 JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <jsp:include page="/WEB-INF/fragments/common-scripts.jsp" />
     <script>
         function eliminarEvento(eventoId, eventoNombre) {
             if (confirm('¿Estás seguro de eliminar el evento "' + eventoNombre + '"?\n\nEsta acción no se puede deshacer.')) {

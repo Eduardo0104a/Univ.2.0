@@ -6,57 +6,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${empty evento ? 'Nuevo Evento' : 'Editar Evento'} - Ruwana</title>
-    
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
+    <jsp:include page="/WEB-INF/fragments/common-head.jsp" />
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-            <a class="navbar-brand" href="${pageContext.request.contextPath}/">
-                <i class="bi bi-heart-fill"></i> Ruwana
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/app/organizacion/dashboard">
-                            <i class="bi bi-speedometer2"></i> Dashboard
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/app/organizacion/eventos">
-                            <i class="bi bi-calendar-event"></i> Mis Eventos
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/logout">Cerrar Sesión</a>
-                    </li>
-                </ul>
+    <jsp:include page="/WEB-INF/fragments/organizacion-navbar.jsp">
+        <jsp:param name="page" value="eventos" />
+    </jsp:include>
+
+    <!-- Main Content -->
+    <div class="container-fluid py-4">
+        <!-- Page Header -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card-ruwana p-4" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); color: white;">
+                    <h2 class="mb-2">
+                        <i class="bi bi-${empty evento ? 'plus-circle' : 'pencil'}"></i>
+                        ${empty evento ? 'Crear Nuevo Evento' : 'Editar Evento'}
+                    </h2>
+                    <p class="mb-0 opacity-75">${organizacion.nombreOrganizacion}</p>
+                </div>
             </div>
         </div>
-    </nav>
 
-    <!-- Header -->
-    <div class="hero-section">
-        <div class="container text-center">
-            <h1>
-                <i class="bi bi-${empty evento ? 'plus-circle' : 'pencil'}"></i>
-                ${empty evento ? 'Crear Nuevo Evento' : 'Editar Evento'}
-            </h1>
-            <p>${organizacion.nombreOrganizacion}</p>
-        </div>
-    </div>
-
-    <!-- Form -->
-    <div class="container py-5">
+        <!-- Form -->
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 <div class="form-container">
@@ -264,8 +236,7 @@
         </div>
     </div>
 
-    <!-- Bootstrap 5 JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <jsp:include page="/WEB-INF/fragments/common-scripts.jsp" />
     <script>
         // Validate end date is after start date
         document.getElementById('fechaInicio').addEventListener('change', function() {

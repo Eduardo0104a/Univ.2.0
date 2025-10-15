@@ -34,7 +34,7 @@
                     <div class="d-flex align-items-center">
                         <div class="flex-shrink-0">
                             <div class="rounded-circle p-3" style="background-color: #E3F2FD;">
-                                <i class="bi bi-building" style="font-size: 2rem; color: #2196F3;"></i>
+                                <i class="bi bi-buildings" style="font-size: 2rem; color: #2196F3;"></i>
                             </div>
                         </div>
                         <div class="flex-grow-1 ms-3">
@@ -102,7 +102,7 @@
             <div class="col-lg-6">
                 <div class="card-ruwana p-4 mb-4">
                     <h4 class="mb-4" style="color: var(--primary-color);">
-                        <i class="bi bi-building-exclamation"></i> Organizaciones Pendientes
+                        <i class="bi bi-buildings-exclamation"></i> Organizaciones Pendientes
                         <span class="badge bg-warning ms-2">${organizacionesPendientes.size()}</span>
                     </h4>
                     
@@ -169,7 +169,7 @@
                                                 <div class="flex-grow-1">
                                                     <h6 class="mb-1">${evento.nombre}</h6>
                                                     <p class="mb-1 small text-muted">
-                                                        <i class="bi bi-building"></i> ${evento.organizacion.nombreOrganizacion}
+                                                        <i class="bi bi-buildings"></i> ${evento.organizacion.nombreOrganizacion}
                                                     </p>
                                                     <p class="mb-0 small text-muted">
                                                         <i class="bi bi-calendar"></i> ${evento.fechaInicio} - ${evento.fechaFin}
@@ -230,7 +230,7 @@
                         <div class="col-md-3">
                             <a href="${pageContext.request.contextPath}/app/admin/organizaciones" 
                                class="btn btn-outline-ruwana w-100">
-                                <i class="bi bi-building"></i> Ver Organizaciones
+                                <i class="bi bi-buildings"></i> Ver Organizaciones
                             </a>
                         </div>
                         <div class="col-md-3">

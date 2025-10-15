@@ -6,71 +6,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel Organización - Ruwana</title>
-    
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
+    <jsp:include page="/WEB-INF/fragments/common-head.jsp" />
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="${pageContext.request.contextPath}/">
-                <i class="bi bi-heart-fill"></i> Ruwana
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="${pageContext.request.contextPath}/app/organizacion/dashboard">
-                            <i class="bi bi-speedometer2"></i> Dashboard
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/app/organizacion/eventos">
-                            <i class="bi bi-calendar-event"></i> Mis Eventos
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/app/organizacion/eventos/crear">
-                            <i class="bi bi-plus-circle"></i> Crear Evento
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/app/organizacion/donaciones">
-                            <i class="bi bi-currency-dollar"></i> Donaciones
-                        </a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" 
-                           data-bs-toggle="dropdown">
-                            <i class="bi bi-building-fill-gear"></i> ${organizacion.nombreOrganizacion}
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end">
-                            <li>
-                                <a class="dropdown-item" href="${pageContext.request.contextPath}/app/organizacion/perfil">
-                                    <i class="bi bi-building"></i> Perfil de Organización
-                                </a>
-                            </li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li>
-                                <a class="dropdown-item" href="${pageContext.request.contextPath}/logout">
-                                    <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <jsp:include page="/WEB-INF/fragments/organizacion-navbar.jsp">
+        <jsp:param name="page" value="dashboard" />
+    </jsp:include>
 
     <!-- Main Content -->
     <div class="container-fluid py-4">
@@ -96,7 +37,7 @@
             <div class="col-12">
                 <div class="card-ruwana p-4" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); color: white;">
                     <h2 class="mb-2">
-                        <i class="bi bi-building"></i> ${organizacion.nombreOrganizacion}
+                        <i class="bi bi-buildings"></i> ${organizacion.nombreOrganizacion}
                     </h2>
                     <p class="mb-0 opacity-75">Gestiona tus eventos y conecta con voluntarios</p>
                 </div>
@@ -287,7 +228,7 @@
                         </a>
                         <a href="${pageContext.request.contextPath}/app/organizacion/perfil" 
                            class="btn btn-outline-ruwana">
-                            <i class="bi bi-building"></i> Editar Perfil
+                            <i class="bi bi-buildings"></i> Editar Perfil
                         </a>
                     </div>
                 </div>
@@ -340,7 +281,6 @@
         </div>
     </div>
 
-    <!-- Bootstrap 5 JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <jsp:include page="/WEB-INF/fragments/common-scripts.jsp" />
 </body>
 </html>

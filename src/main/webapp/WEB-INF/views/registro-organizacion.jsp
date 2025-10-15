@@ -19,7 +19,8 @@
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
             <a class="navbar-brand" href="${pageContext.request.contextPath}/">
-                <i class="bi bi-heart-fill"></i> Ruwana
+                <img src="${pageContext.request.contextPath}/images/logos/ruwana.svg" alt="Ruwana" class="navbar-logo">
+                Ruwana
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -37,7 +38,7 @@
     <!-- Hero Section -->
     <div class="hero-section">
         <div class="container text-center">
-            <h1><i class="bi bi-building"></i> Regístrate como Organización</h1>
+            <h1><i class="bi bi-buildings"></i> Regístrate como Organización</h1>
             <p>Conecta con voluntarios comprometidos</p>
         </div>
     </div>
@@ -111,7 +112,7 @@
 
                 <!-- Datos de la Organización -->
                 <h4 class="mb-4" style="color: var(--primary-color);">
-                    <i class="bi bi-building-check"></i> Datos de la Organización
+                    <i class="bi bi-buildings-check"></i> Datos de la Organización
                 </h4>
 
                 <div class="row">

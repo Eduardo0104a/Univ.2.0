@@ -19,7 +19,8 @@
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
             <a class="navbar-brand" href="${pageContext.request.contextPath}/">
-                <i class="bi bi-heart-fill"></i> Ruwana
+                <img src="${pageContext.request.contextPath}/images/logos/ruwana.svg" alt="Ruwana" class="navbar-logo">
+                Ruwana
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -85,7 +86,7 @@
                         <div class="row g-3 mb-4">
                             <div class="col-md-6">
                                 <div class="d-flex align-items-center">
-                                    <i class="bi bi-building" style="font-size: 1.5rem; color: var(--primary-color); margin-right: 10px;"></i>
+                                    <i class="bi bi-buildings" style="font-size: 1.5rem; color: var(--primary-color); margin-right: 10px;"></i>
                                     <div>
                                         <small class="text-muted d-block">Organización</small>
                                         <strong>${evento.organizacion.nombreOrganizacion}</strong>

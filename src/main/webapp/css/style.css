@@ -42,6 +42,18 @@ body {
     color: var(--primary-color) !important;
 }
 
+.navbar-brand .navbar-logo {
+    height: 35px;
+    width: auto;
+    margin-right: 8px;
+    vertical-align: middle;
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover .navbar-logo {
+    transform: scale(1.05);
+}
+
 .navbar-nav .nav-link {
     font-weight: 500;
     color: var(--text-dark) !important;

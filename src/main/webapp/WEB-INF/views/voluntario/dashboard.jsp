@@ -19,7 +19,8 @@
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="${pageContext.request.contextPath}/">
-                <i class="bi bi-heart-fill"></i> Ruwana
+                <img src="${pageContext.request.contextPath}/images/logos/ruwana.svg" alt="Ruwana" class="navbar-logo">
+                Ruwana
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -182,7 +183,7 @@
                                                     <h5 class="card-title">${evento.nombre}</h5>
                                                     <p class="card-text text-muted">
                                                         <small>
-                                                            <i class="bi bi-building"></i> ${evento.organizacion.nombreOrganizacion}
+                                                            <i class="bi bi-buildings"></i> ${evento.organizacion.nombreOrganizacion}
                                                         </small>
                                                     </p>
                                                     <p class="card-text">
